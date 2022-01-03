@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+*{
+    font-family:'Lato';
+}
+
+.card{
+    background: radial-gradient(circle, rgba(255,255,255,0.2497373949579832) 57%, rgba(70,79,89,1) 99%);
+    display:flex;
+    justify-content: space-between;
+    margin:1% 2%;
+    border-radius:12px;
+    color:#fff;
+    &:hover{
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.616) 57%, rgba(70,79,89,1) 99%);
+        cursor:pointer;
+        transition:10s; 
+    }
+    img{
+        width:7vh;
+        margin:2vh ;
+    }
+    .cryptValue{
+        margin-right:2%;
+    }
+ 
+}
+.CardContainer{
+    overflow-y:scroll;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+    width:34vw;
+    margin: 7% 1% 1% 1%;
+    border-radius:12px;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(235, 235, 235); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+  }
+  .price{
+      color:rgba(255, 217, 0, 0.767);
+  }
+
+  #search{
+      background: transparent;
+      width:90%;
+      border:none;
+      border-bottom:rgba(255, 255, 255, 0.507) 2.5px solid;
+      margin:2% 0;
+        color:white;
+        font-family:'Lato';
+        font-size:3vh;
+  }
+  input:focus{
+    outline: none;
+}
