@@ -1,0 +1,19 @@
+nav{
+    background: linear-gradient(90deg, rgba(255,255,255,1) 19%, rgba(255,255,255,0.15449929971988796) 30%, rgba(255,255,255,0) 56%);
+    -webkit-box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52); 
+box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52);
+    position:fixed;
+    width:100%;
+    margin:-1.5% 0 0 0;
+    .NavContent{
+        display:flex;
+        // justify-content:flex-start;
+        // width:100%;
+        img{
+            width:10%;
+            padding-left:3%;
+        }
+    }
+    
+
+}
