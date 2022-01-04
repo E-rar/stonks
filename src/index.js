@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import CoinContextProvider from './contexts/CoinContext'
 
 ReactDOM.render(
   <React.StrictMode>
+  <CoinContextProvider>
     <App />
-  </React.StrictMode>,
+  </CoinContextProvider>
+  </React.StrictMode>
+  ,
   document.getElementById('root')
 );
 

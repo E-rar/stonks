@@ -1,7 +1,13 @@
+import { useEffect, useState,useContext } from 'react';
 import './Card.scss'
+import { CoinContext } from '../../contexts/CoinContext'
+
+
+
 const Card = (props) => {
+    const{current,setCurrent}=useContext(CoinContext)
     return ( 
-        <div className="card">
+        <div className="card" onClick={()=>setCurrent(props.target)}>
             <img src={props.symbol} alt="" />
             <div className="cryptInfo">
                 <h2>{props.name}</h2>
