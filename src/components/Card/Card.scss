@@ -9,7 +9,7 @@
     box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52);
     display:flex;
     justify-content: space-between;
-    margin:1% 2%;
+    margin:1.2% 2%;
     border-radius:12px;
     color:#fff;
     &:hover{
@@ -27,33 +27,39 @@
  
 }
 .CardContainer{
-    overflow-y:hidden;
+    overflow-y:scroll;
     overflow-x:hidden;
     scroll-behavior:smooth;
     width:27vw;
-    margin: 1% 1% 1% 1%;
+    height:74vh;
+    margin: 10% 1% 1% 2%;
     border-radius:12px;
+    -webkit-box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52); 
+    box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52);
+    
+    
 }
 /* width */
 ::-webkit-scrollbar {
-    width: 0px;
+    width: 5px;
+    border-radius:50%;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.616); 
     border-radius: 10px;
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgb(235, 235, 235); 
+    background: rgba(235, 235, 235, 0.377); 
     border-radius: 10px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
+    background: #ffffff; 
   }
   .price{
       color:rgba(255, 217, 0, 0.767);
@@ -72,3 +78,62 @@
   input:focus{
     outline: none;
 }
+@keyframes turner{
+  from{  transform: rotateY(0deg)   }
+  to  {  transform: rotateY(360deg) }
+}
+
+.more{
+  display:flex;
+  .dataCard{
+    background: linear-gradient(to right bottom,  rgba(255,255,255,0) 17%, rgba(255,255,255,0.15449929971988796) 30%, rgba(255, 255, 255, 0.747)33%);
+    -webkit-box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52); 
+    box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52);
+    width:65vw;
+    height:75vh;
+    margin:10% 0 0 2%;
+    border-radius:12px;
+  .ImgContainer{
+    -webkit-box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52); 
+    box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52);
+    border-radius:10%;
+    display:inline-block;
+    position:relative;
+    border-radius:50%;
+    padding:5% 0;
+    top:5%;
+    left:-35%;
+    .turningImg{
+      width:50%;
+      animation: turner 14s infinite linear
+    }
+  }
+  .headline{
+    position:relative;
+    top:-33%;
+    left:-15%;
+    color:white;
+    font-size:1.2em;
+  }
+  .Description{
+    background-color:rgba(255, 255, 255, 0.63);
+    color:black;
+    height:15vh;
+    width:65%;
+    border-radius:12px;
+    margin-left:29vw;
+    overflow-y:scroll;
+    scroll-behavior: smooth;
+    background: linear-gradient(to right bottom,  rgba(255,255,255,0) 17%, rgba(255,255,255,0.15449929971988796) 30%, rgba(255, 255, 255, 0.747)33%);
+    -webkit-box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52); 
+    box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52);
+    p{
+    line-height:3vh;
+     text-align: left;
+     padding:0 1% 0 1%;
+    }
+ 
+  }
+}
+}
+
