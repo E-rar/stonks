@@ -2,6 +2,7 @@ import { useEffect, useState,useContext } from 'react';
 import axios from 'axios';
 import Card from './Card';
 import CardDescription from './CardDescription';
+import LineChart from './Line.jsx'
 import { CoinContext } from '../../contexts/CoinContext'
 
 const Cardcontainer = () => {
@@ -15,16 +16,6 @@ const Cardcontainer = () => {
      })
      .catch(error=>console.log(error))
    },[]);
-
-  
-
-  // useEffect(()=>{
-  //   axios.get(`https://api.coingecko.com/api/v3/coins/${current.id}`)
-  //   .then(res=>{
-  //     setCoin(res.data);
-  //   })
-  //   .catch(error=>console.log(error))
-  // },[current]);
 
     return (
       <div className="more">
@@ -49,17 +40,20 @@ const Cardcontainer = () => {
         )}
       </div>
       <div className="dataCard">
-
+          <div className="imgWrapper">
       
           <div className="ImgContainer">
             <img src={current.image} alt=""  className="turningImg"/>
+          </div>
           </div>
           <div className="headline">
           <h1>
             {current.name}
           </h1>
           <CardDescription/>
+          <LineChart/>
           </div>
+          
         </div>
       </div>
       );

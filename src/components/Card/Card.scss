@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Source+Serif+Pro&display=swap');
+
 *{
-    font-family:'Lato';
+    font-family:'Source Serif Pro';
 }
 
 .card{
@@ -10,7 +12,7 @@
     display:flex;
     justify-content: space-between;
     margin:1.2% 2%;
-    border-radius:12px;
+    // border-radius:12px;
     color:#fff;
     &:hover{
       background: linear-gradient(90deg, rgba(255,255,255,1) 19%, rgba(255, 255, 255, 0.548) 30%, rgba(255, 255, 255, 0.274) 56%);
@@ -85,6 +87,7 @@
 
 .more{
   display:flex;
+  overflow:hidden;
   .dataCard{
     background: linear-gradient(to right bottom,  rgba(255,255,255,0) 17%, rgba(255,255,255,0.15449929971988796) 30%, rgba(255, 255, 255, 0.747)33%);
     -webkit-box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52); 
@@ -92,39 +95,41 @@
     width:65vw;
     height:75vh;
     margin:10% 0 0 2%;
-    border-radius:12px;
+    // border-radius:12px;
+    display:flex;
+  .imgWrapper{ 
+
   .ImgContainer{
     -webkit-box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52); 
     box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52);
-    border-radius:10%;
-    display:inline-block;
-    position:relative;
     border-radius:50%;
-    padding:5% 0;
-    top:5%;
-    left:-35%;
+    padding:20.5% 0;
+    width:13vw;
+    margin:13% 0 0 13%;
+    
+ 
     .turningImg{
       width:50%;
       animation: turner 14s infinite linear
     }
   }
+}
   .headline{
-    position:relative;
-    top:-33%;
-    left:-15%;
     color:white;
     font-size:1.2em;
+    display:inline-block;
+    text-align:left;
+    margin:0 0 0 7%;
   }
   .Description{
     background-color:rgba(255, 255, 255, 0.63);
     color:black;
-    height:15vh;
-    width:65%;
-    border-radius:12px;
-    margin-left:29vw;
+    height:17.5vh;
+    width:95%;
+    // border-radius:12px;
     overflow-y:scroll;
     scroll-behavior: smooth;
-    background: linear-gradient(to right bottom,  rgba(255,255,255,0) 17%, rgba(255,255,255,0.15449929971988796) 30%, rgba(255, 255, 255, 0.747)33%);
+    background:rgba(255, 255, 255, 0.678);
     -webkit-box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52); 
     box-shadow: -1px 7px 24px -4px rgba(0,0,0,0.52);
     p{
