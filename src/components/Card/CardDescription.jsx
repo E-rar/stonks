@@ -13,7 +13,7 @@ import { CoinContext } from '../../contexts/CoinContext'
         axios.get(`https://api.coingecko.com/api/v3/coins/${current.id}`)
         .then(res=>{
           setCoin(res.data.description);
-          console.log(coin);
+          console.log(current);
         })
         .catch(error=>console.log(error))
       },[current]);

@@ -8,7 +8,7 @@ import { CoinContext } from '../../contexts/CoinContext'
 const Cardcontainer = () => {
     const [stock, setStock] = useState([])
     const{current,setCurrent}=useContext(CoinContext)
-
+    
    useEffect(()=>{
      axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false')
      .then(res=>{
@@ -16,7 +16,6 @@ const Cardcontainer = () => {
      })
      .catch(error=>console.log(error))
    },[]);
-
     return (
       <div className="more">
         
