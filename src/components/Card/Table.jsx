@@ -18,7 +18,7 @@ const Table = (props) => {
         </tr>
         <tr>
             <td>price(7d)</td>
-            <td>{props.price}€</td>
+            <td>{props.price7d}€</td>
         </tr>
         <tr>
             <td>7d%</td>

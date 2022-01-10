@@ -50,7 +50,7 @@ const Cardcontainer = () => {
           {/* //=====================Table============ */}
           <Table value={current.price} 
           percent24h={current.percentage24}
-          price7d={current7}
+          price7d={current7.toFixed(2)}
           percent7d={(current7/current.price).toFixed(4)}/>
           {/* //=====================Table============ */}
           </div>
