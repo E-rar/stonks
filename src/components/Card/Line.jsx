@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { useEffect, useState,useContext } from 'react';
 import { CoinContext } from '../../contexts/CoinContext'
 import axios from 'axios'
-import { VictoryBar, VictoryChart, VictoryAxis,
-  VictoryTheme, VictoryArea } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis,VictoryVoronoiContainer,
+  VictoryTheme, VictoryArea,VictoryTooltip } from 'victory';
   
 
   
@@ -13,20 +13,11 @@ import { VictoryBar, VictoryChart, VictoryAxis,
     const{current,setCurrent}=useContext(CoinContext)
     const{days,setDays}=useState('365')
     
-    // const handleCurrent = ()=>{
-    //   current==='0'?setCurrent({image: 'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
-    //    name: 'Bitcoin', 
-    //    id: 'bitcoin'}):null;
-    // }
-    
-    // ()=>handleCurrent();
-
     useEffect(()=>{
       axios.get(`https://api.coingecko.com/api/v3/coins/${current.id}/market_chart?vs_currency=eur&days=365&interval=daily`)
       // axios.get(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=eur&days=365&interval=daily`) 
       .then(res=>{
         setPrices(res.data);
-        console.log(prices)
         
       })
       .catch(error=>console.log(error))
@@ -36,28 +27,31 @@ import { VictoryBar, VictoryChart, VictoryAxis,
     let objectPrices=[]
     let i =0;
 
-    const getObject=()=>{
-    
-    renderPrices.map(elt=>{
-      
+    const getObject=()=>{ //Funktion um alle gefetchten Daten in einen Array zu pushen
+     
+      renderPrices?.map(elt=>{
       objectPrices.push({x:new Date(renderPrices[i][0]),y:renderPrices[i][1]})
-      console.log(elt, renderPrices)
-      console.log(elt,current)
       i++;
     })
-    // return objectPrices;
-  }
-  getObject();
+}
+getObject() //hier ist der Fehler 
 
     return (
-      <VictoryChart 
+      <VictoryChart
+       
         width={650} 
         height={300} 
         scale={{ x: 0 }}
         offsetY={150}
-        padding={{ top: -40, bottom: 150, left: 220, right: 40 }}
+        padding={{ top: -40, bottom: 150, left: 80, right: 40 }}
+        containerComponent={
+          <VictoryVoronoiContainer
+            labels={() => `${(objectPrices.y)}`}
+          />
+        }
       >
-        <VictoryArea 
+        <VictoryArea
+          labelComponent={<VictoryTooltip/>} 
           data={objectPrices}
           style={{data: { fill: 'lightblue', stroke: 'teal' }}} 
         />
