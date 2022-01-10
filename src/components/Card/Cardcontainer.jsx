@@ -3,11 +3,12 @@ import axios from 'axios';
 import Card from './Card';
 import CardDescription from './CardDescription';
 import LineChart from './Line.jsx'
+import Table from './Table'
 import { CoinContext } from '../../contexts/CoinContext'
 
 const Cardcontainer = () => {
     const [stock, setStock] = useState([])
-    const{current,setCurrent}=useContext(CoinContext)
+    const{current,setCurrent,current7,setCurrent7}=useContext(CoinContext)
     
    useEffect(()=>{
      axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false')
@@ -33,7 +34,9 @@ const Cardcontainer = () => {
         symbol={elt.image}
         target={{image:elt.image,
                 name:elt.name,
-                id:elt.id}} 
+                id:elt.id,
+              price:elt.current_price,
+            percentage24:elt.market_cap_change_percentage_24h}} 
         />
     
         )}
@@ -44,6 +47,12 @@ const Cardcontainer = () => {
           <div className="ImgContainer">
             <img src={current.image} alt=""  className="turningImg"/>
           </div>
+          {/* //=====================Table============ */}
+          <Table value={current.price} 
+          percent24h={current.percentage24}
+          price7d={current7}
+          percent7d={(current7/current.price).toFixed(4)}/>
+          {/* //=====================Table============ */}
           </div>
           <div className="headline">
           <h1>

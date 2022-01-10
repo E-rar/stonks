@@ -10,11 +10,11 @@ import { VictoryBar, VictoryChart, VictoryAxis,VictoryVoronoiContainer,
   
   function LineChart() {
     const [prices,setPrices] = useState([]);
-    const{current,setCurrent}=useContext(CoinContext)
+    const{current,setCurrent,current7,setCurrent7}=useContext(CoinContext)
     const{days,setDays}=useState('365')
     
     useEffect(()=>{
-      axios.get(`https://api.coingecko.com/api/v3/coins/${current.id}/market_chart?vs_currency=eur&days=365&interval=daily`)
+      axios.get(`https://api.coingecko.com/api/v3/coins/${current.id}/market_chart?vs_currency=eur&days=7&interval=daily`)
       // axios.get(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=eur&days=365&interval=daily`) 
       .then(res=>{
         setPrices(res.data);
@@ -26,7 +26,6 @@ import { VictoryBar, VictoryChart, VictoryAxis,VictoryVoronoiContainer,
     const renderPrices=prices.prices;
     let objectPrices=[]
     let i =0;
-
     const getObject=()=>{ //Funktion um alle gefetchten Daten in einen Array zu pushen
      
       renderPrices?.map(elt=>{
@@ -34,7 +33,13 @@ import { VictoryBar, VictoryChart, VictoryAxis,VictoryVoronoiContainer,
       i++;
     })
 }
-getObject() //hier ist der Fehler 
+const handlePercentage =()=>{
+  if(renderPrices){
+  setCurrent7(renderPrices[7][1])
+}
+}
+getObject()
+handlePercentage() 
 
     return (
       <VictoryChart
@@ -44,12 +49,7 @@ getObject() //hier ist der Fehler
         scale={{ x: 0 }}
         offsetY={150}
         padding={{ top: -40, bottom: 150, left: 80, right: 40 }}
-        containerComponent={
-          <VictoryVoronoiContainer
-            labels={() => `${(objectPrices.y)}`}
-          />
-        }
-      >
+        >
         <VictoryArea
           labelComponent={<VictoryTooltip/>} 
           data={objectPrices}
