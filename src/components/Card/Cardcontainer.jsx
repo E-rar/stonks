@@ -4,6 +4,7 @@ import Card from './Card';
 import CardDescription from './CardDescription';
 import LineChart from './Line.jsx'
 import Table from './Table'
+import Range from './Range'
 import { CoinContext } from '../../contexts/CoinContext'
 
 const Cardcontainer = () => {
@@ -47,11 +48,13 @@ const Cardcontainer = () => {
           <div className="ImgContainer">
             <img src={current.image} alt=""  className="turningImg"/>
           </div>
+          <Range/>
           {/* //=====================Table============ */}
-          <Table value={current.price} 
-          percent24h={current.percentage24}
-          price7d={current7.toFixed(2)}
-          percent7d={(current7/current.price).toFixed(4)}/>
+          {/* <Table value={current.price} 
+          percent24h={current.percentage24.toFixed(2)}
+          price7d={current7?.toFixed(2)}
+          percent7d={(current7/current.price).toFixed(2)}/> */}
+   
           {/* //=====================Table============ */}
           </div>
           <div className="headline">

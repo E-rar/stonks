@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CoinContextProvider from './contexts/CoinContext'
+// import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
+  {/* <BrowserRouter> */}
   <CoinContextProvider>
     <App />
   </CoinContextProvider>
+  {/* </BrowserRouter> */}
   </React.StrictMode>
   ,
   document.getElementById('root')

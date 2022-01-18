@@ -1,0 +1,42 @@
+
+.LoginH3{
+    color:#ffffff;
+    font-size:3em;
+    text-align: center;
+    font-weight:500;
+    padding-top: -10%;
+    padding-bottom:0%;
+    @media(min-width:800px)and (max-width:3400px){
+        padding-top: 0%;
+        font-size: 3rem;
+        text-align: center;
+        
+    }
+}
+.LoginH1{
+    font-size:4em;
+    text-align:center;
+    font-weight:500;
+    color:white;
+    margin-bottom: 10%;
+    @media(min-width:800px) and (max-width:3400px){
+        font-size: 8rem;
+        
+    }
+}
+p{
+    color:#ffffff;
+    font-size:.8em;
+    text-align: center;
+    font-weight:500;
+    padding-top: 15%;
+    @media(min-width:1440px){
+        margin-top:-10%;
+        margin-left: 3%;
+        
+    }
+}
+
+.mail {
+
+}

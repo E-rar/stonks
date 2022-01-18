@@ -11,10 +11,10 @@ import { VictoryBar, VictoryChart, VictoryAxis,VictoryVoronoiContainer,
   function LineChart() {
     const [prices,setPrices] = useState([]);
     const{current,setCurrent,current7,setCurrent7}=useContext(CoinContext)
-    const{days,setDays}=useState('365')
+    let days=365;
     
     useEffect(()=>{
-      axios.get(`https://api.coingecko.com/api/v3/coins/${current.id}/market_chart?vs_currency=eur&days=7&interval=daily`)
+      axios.get(`https://api.coingecko.com/api/v3/coins/${current.id}/market_chart?vs_currency=eur&days=${days}&interval=daily`)
       // axios.get(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=eur&days=365&interval=daily`) 
       .then(res=>{
         setPrices(res.data);
@@ -35,7 +35,7 @@ import { VictoryBar, VictoryChart, VictoryAxis,VictoryVoronoiContainer,
 }
 const handlePercentage =()=>{
   if(renderPrices){
-  setCurrent7(renderPrices[7][1])
+  setCurrent7(renderPrices[days][1])
 }
 }
 getObject()
